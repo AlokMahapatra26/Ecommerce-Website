@@ -1,15 +1,16 @@
 const app = require("./app");
-// const dotenv = require("dotenv");
+const connectDatabase = require("./config/database")
 
-//Config
-// dotenv.config({path:"config/config.env"});
-const PORT = 4000; 
 
+
+//Connection to database
+connectDatabase();
 
 app.get("/" , (req , res)=> {
     res.send("Hello Worldd");
 })
 
-app.listen(PORT , ()=> {
-    console.log(`Server is runnign on PORT ${PORT}`)
+const port = 3000;
+app.listen(port , ()=> {
+    console.log(`Server is runnign on PORT ${port}`)
 })
