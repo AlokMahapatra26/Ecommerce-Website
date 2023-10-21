@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const ErrorHandler = require("../utils/errorhandler");
 
 //CREATE PRODUCT -- Admin
 exports.createProduct = async (req,res,next)=>{
@@ -16,10 +17,7 @@ exports.updateProduct = async(req , res , next) => {
     let product = Product.findById(req.params.id);
 
     if(!product){
-        return res.status(500).json({
-            success:false,
-            message : "product not found"
-        })
+        return next(new ErrorHandler("Product not found", 400))
     }
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body,{new:true, runValidator:true,useFindAndModify:false});
@@ -37,10 +35,7 @@ exports.deleteProduct = async(req , res , next) => {
     let product  = Product.findById(req.params.id);
 
     if(!product){
-        return res.status(500).json({
-            success:false,
-            message:"product not found"
-        })
+        return next(new ErrorHandler("Product not found", 400))
     }
 
     const deleteResult = await product.deleteOne();
@@ -78,10 +73,7 @@ exports.getAllProducts = async (req, res) => {
     const product = await Product.findById(req.params.id);
 
     if(!product){
-        return res.status(500).json({
-            success : false,
-            message : "Product not found"
-        })
+         return next(new ErrorHandler("Product not found", 400))
     }
 
     res.status(200).json({
