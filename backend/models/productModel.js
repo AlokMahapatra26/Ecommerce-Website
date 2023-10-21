@@ -1,64 +1,63 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
+const ProductSchema =   mongoose.Schema({
     name : {
-        type : String,
-        required: [true , "Please Enter product Name"],
-        trim:true
+        type:String,
+        required:[true , "Please Enter Product Name"]
     },
-    description : {
-        type : String,
-        required:[true , "Please Enter product Description"]
+    description:{
+        type:String,
+        requires:[true , "Please Enter Description"]
     },
     price : {
         type:Number,
-        required:[true , "please Enter product Price"],
-        maxLength:[8,"Price cannot exceed 8 digit"]
+        required:[true , "Please Enter Price"],
+        maxLength:[8,"Price cannot exceed 8 fig"]
     },
     rating : {
-        type : Number,
-        default: 0
+        type:Number,
+        defaut:0
     },
-    images:[
+    images : [
         {
-        public_id:{
-            type:String,
-            required:true
-        },
-        url:{
-            type:String,
-            required:true
-        }
+            public_id:{
+                type:String,
+                required:true
+            },
+            url:{
+                type:String,
+                required:true
+            }
         }
     ],
     category:{
         type:String,
-        required:[true , "Please Enter product category"]
+        required:[true , "Please Enter Product category"]
     },
     Stock:{
         type:Number,
+        Default : 1,
         required:[true , "Please Enter product Stock"],
-        maxLength:[5,"Stack cannot exceed  5 character"]
+        maxLength:[4 , "Stock cannot exceed 1000"]
     },
-    numofReviews:{
+    numOfReviews:{
         type:Number,
-        default : 0
+        default:0
     },
-    reviews:[
+    review:[
         {
-            name : {
+            name:{
                 type:String,
                 required:true
             },
-            rating:{
+            rating :{
                 type:Number,
-                required:true,
+                required:true
             },
             comment:{
                 type:String,
                 required:true
             }
-
         }
     ],
     createdAt:{
@@ -67,4 +66,5 @@ const productSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Product", productSchema);
+
+module.exports = mongoose.model("Product" , ProductSchema);

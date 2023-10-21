@@ -7,7 +7,7 @@ const connectDatabase = require("./config/database")
 connectDatabase();
 
 app.get("/" , (req , res)=> {
-    res.send("Hello Worldd");
+    res.send("Home Page");
 })
 
 const port = 3000;
