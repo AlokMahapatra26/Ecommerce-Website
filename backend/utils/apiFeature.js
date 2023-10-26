@@ -37,6 +37,10 @@ class ApiFeatures {
 
          return this;
     }
+
+    pagination(resultPerPage){
+        const currentpage = Number(this.queryStr.page) || 1;
+    }
 }
 
 module.exports = ApiFeatures;
