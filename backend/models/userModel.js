@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
         type:String,
         required:[true,"Please Enter Your Password"],
         unique:true,
-        validator:[validator.isEmail , "Please Enter valid Email"]
+        validate:[validator.isEmail , "Please Enter valid Email"]
     },
     password:{
         type:String,
