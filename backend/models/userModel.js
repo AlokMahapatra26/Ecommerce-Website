@@ -40,18 +40,19 @@ const userSchema = mongoose.Schema({
     resetPasswordExpire:Date
 })
 
+//hasing password
 userSchema.pre("save",async function(next){
 
     if(!this.isModified("password")){
         next()
     }
-    this.password = await bcrypt.hash(this.password,10)
+    this.password = await bcrypt.hash(this.password, 10)
 })
 
 //JWT TOKEN
 userSchema.methods.getJWTToken = function (){
-    return jwt.sign({id:this._id},"jsdjfhsidfjh32423h4982hwe98fhn38hr34nf3948fh38f83h" , {
-        expiresIn:5
+    return jwt.sign({id:this._id}, process.env.JWT_SECRET, {
+        expiresIn:process.env.JWT_EXPIRE,
     })
 };
 
