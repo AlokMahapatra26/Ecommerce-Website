@@ -97,3 +97,14 @@ exports.forgotPassword = catchAsyncError(async (req,res,next)=>{
         return next(new ErrorHandler(error.message , 500))
     }
 })
+
+//Get user Details
+exports.getUserDetails = catchAsyncError(async(req,res,next)=>{
+    const user = await User.findById(req.user.id);
+
+    res.status(200).json({
+        success:true,
+        user
+    })
+})
+
