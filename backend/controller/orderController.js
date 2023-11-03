@@ -9,7 +9,7 @@ exports.newOrder = catchAsyncErrors(async (req,res,next)=>{
         shippingInfo ,
         orderItems ,
         paymentInfo ,
-        itmesPrice,
+        itemsPrice,
         taxPrice,
         shippingPrice,
         totalPrice
@@ -19,7 +19,7 @@ exports.newOrder = catchAsyncErrors(async (req,res,next)=>{
         shippingInfo ,
         orderItems ,
         paymentInfo ,
-        itmesPrice,
+        itemsPrice,
         taxPrice,
         shippingPrice,
         totalPrice,
