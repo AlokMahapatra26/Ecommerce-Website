@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from './Product.jsx'
+import MetaData from '../MetaData.jsx'
 
 
 const products = [
@@ -37,6 +38,7 @@ const products = [
 function Home() {
   return (
 <section class="text-gray-600 body-font xl:mx-16 ">
+  <MetaData title="metadata title"/> 
   <div className='flex items-center justify-center flex-col'><h1 className=' border-b inline-block 
   mt-8 border-black p-2'>Featured Products</h1></div>
   <br />
