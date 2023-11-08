@@ -18,7 +18,8 @@ function Home() {
   },[])
 
   return (
-<section class="text-gray-600 body-font xl:mx-16 ">
+    <fragment>
+      {loading ? "Loading..." : <section class="text-gray-600 body-font xl:mx-16 ">
   <MetaData title="Etronica"/> 
   <div className='flex items-center justify-center flex-col'><h1 className=' border-b inline-block 
   mt-8 border-black p-2'>Featured Products</h1></div>
@@ -26,7 +27,8 @@ function Home() {
      <div className="container" id='container'>
         {product && product.map((product)=> <Product product={product} />)}
      </div>
-</section>
+</section>}
+    </fragment>
   )
 }
 
