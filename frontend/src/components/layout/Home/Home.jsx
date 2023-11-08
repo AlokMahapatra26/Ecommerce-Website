@@ -4,7 +4,7 @@ import MetaData from '../MetaData.jsx'
 import {getProduct} from "../../../actions/productAction.js";
 import {useSelector , useDispatch} from 'react-redux'
 import { useEffect } from 'react';
-
+import Loader from '../Loader/Loader';
 
 
 
@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <fragment>
-      {loading ? "Loading..." : <section class="text-gray-600 body-font xl:mx-16 ">
+{ loading ? 'loading...' : <section class="text-gray-600 body-font xl:mx-16 ">
   <MetaData title="Etronica"/> 
   <div className='flex items-center justify-center flex-col'><h1 className=' border-b inline-block 
   mt-8 border-black p-2'>Featured Products</h1></div>

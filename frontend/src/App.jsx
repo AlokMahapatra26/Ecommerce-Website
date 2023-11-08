@@ -3,6 +3,7 @@ import Footer from "./components/layout/Footer/Footer";
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 import React from "react";
 import Home from "./components/layout/Home/Home";
+import Loader from "./components/layout/Loader/Loader";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Header/>
       <Routes>
       <Route exact path="/" element={<Home/>}/>
-      
+      <Route path="/loader" element={<Loader/>}/>
       </Routes>
       <Footer/>
     </Router>
