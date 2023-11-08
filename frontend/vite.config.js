@@ -7,5 +7,10 @@ export default {
   theme: {
     extend: {},
   },
+  server:{
+    proxy:{
+      '/api' : "http://localhost:4000",
+    }
+  },
   plugins: [],
 }
