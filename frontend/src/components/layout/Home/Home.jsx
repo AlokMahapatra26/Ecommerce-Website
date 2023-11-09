@@ -5,17 +5,21 @@ import {getProduct} from "../../../actions/productAction.js";
 import {useSelector , useDispatch} from 'react-redux'
 import { useEffect } from 'react';
 import Loader from '../Loader/Loader';
-
+import { useAlert } from "react-alert"
 
 
 function Home() {
 
+  const alert = useAlert();
   const dispatch = useDispatch();
   const {loading , error , product} = useSelector(state => state.products);
 
   useEffect(()=>{
+    if(error){
+      return alert.error("Error")
+    }
     dispatch(getProduct())
-  },[])
+  },[dispatch , error])
 
   return (
     <fragment>

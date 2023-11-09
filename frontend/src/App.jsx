@@ -13,7 +13,7 @@ function App() {
       <Header/>
       <Routes>
       <Route exact path="/" element={<Home/>}/>
-      <Route path="/loader" element={<Loader/>}/>
+      
       </Routes>
       <Footer/>
     </Router>
